@@ -16,14 +16,19 @@ URLProperty::URLProperty(std::string name, std::string displayText, std::string 
 URLProperty* URLProperty::clone() const
 {
 	// À compéter: alloue un nouvel objet identique à this et retourne le pointeur
+	URLProperty* URLPropertyptr = new  URLProperty{ m_name,  m_displayText, m_URL };
+	return URLPropertyptr;
 }
 
 std::string URLProperty::getValueAsString() const
 {
 	// À compéter
+	return m_URL;         // À voir si c'est la bonne representation
 }
 
 std::ostream& URLProperty::printToStream(std::ostream& o) const
 {
 	// À compéter
+	o << this->getValueAsString();
+	return o;
 }

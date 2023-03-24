@@ -16,14 +16,19 @@ StringProperty::StringProperty(std::string name, std::string value)
 StringProperty* StringProperty::clone() const
 {
 	// À compéter: alloue un nouvel objet identique à this et retourne le pointeur
+	StringProperty* intPropertyptr = new  StringProperty{ m_name, m_value };
+	return intPropertyptr;
 }
 
 std::string StringProperty::getValueAsString() const
 {
 	// À compéter
+	return m_value;
 }
 
 std::ostream& StringProperty::printToStream(std::ostream& o) const
 {
 	// À compéter
+	o << this->getValueAsString();
+	return o;
 }

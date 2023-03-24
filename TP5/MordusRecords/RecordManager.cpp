@@ -9,6 +9,7 @@
 
 #include "RecordManager.h"
 
+
 RecordManager::RecordManager()
 {
 }
@@ -18,6 +19,10 @@ Record& RecordManager::addRecord(std::string name)
     // À compléter: ajouter une nouvelle fiche en construisant une fiche qui sera copiée
     // 	            insérer la copie dans le conteneur STL
     //              retourner la référence à la copie qui vient d'être créée
+    Record myRecord { name };
+    std::unique_ptr<Record> myRecordCopy = std::make_unique<Record>(*myRecord.clone());
+    m_records.push_back(myRecordCopy);
+    return *myRecordCopy;
 }
 
 Record& RecordManager::addRecord(const Record& rec)
@@ -25,31 +30,39 @@ Record& RecordManager::addRecord(const Record& rec)
     // À compléter: ajouter une nouvelle fiche en clonant la fiche passée en paramètre
     // 	            insérer la copie dans le conteneur STL
     //              retourner la référence à la copie qui vient d'être créée
+    std::unique_ptr<Record> myRecordCopy = std::make_unique<Record>(*rec.clone());
+    m_records.push_back(myRecordCopy);
+    return *myRecordCopy;
 }
 
 RecordIterator RecordManager::begin()
 {
     // À compléter
+    return m_records.begin();
 }
 
 RecordIterator RecordManager::end()
 {
     // À compléter
+    return m_records.end();
 }
 
 RecordIterator_const RecordManager::cbegin() const
 {
     // À compléter
+    return m_records.cbegin();
 }
 
 RecordIterator_const RecordManager::cend() const
 {
     // À compléter
+    return m_records.cend();
 }
 
 void RecordManager::deleteRecord(RecordIterator_const child)
 {
     // À compléter
+    m_records.erase(child);
 }
 
 RecordIterator RecordManager::findRecord(std::string name)

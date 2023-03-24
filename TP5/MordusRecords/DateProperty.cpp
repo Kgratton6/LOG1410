@@ -15,14 +15,18 @@ DateProperty::DateProperty(std::string name, int day, int month, int year)
 BaseProperty* DateProperty::clone() const 
 {
 	// À compéter: alloue un nouvel objet identique à this et retourne le pointeur
+	Date date = this->getDate();
+	BaseProperty*  datePropertyptr = new  DateProperty { this->m_name, date.getDay(), date.getMonth(), date.getYear() };
+	return datePropertyptr;
 }
 
 std::string DateProperty::getValueAsString() const 
 {
-	// À compéter
+	return this->getDate().toString();
 }
 
 std::ostream& DateProperty::printToStream(std::ostream& o) const
 {
-	// À compéter
+	o << this->getDate().toString();
+	return o;
 }

@@ -142,8 +142,8 @@ int main(int argc, char** argv)
 	for (auto it = theRecordManager.cbegin(); it != theRecordManager.cend(); ++it)
 		std::cout << *it;
 
-	LinkManager theLinkManager;
-	establishLinks(theRecordManager, theLinkManager);
-	for (auto it = theLinkManager.cbegin(); it != theLinkManager.cend(); ++it)
-		std::cout << *it;
+	//LinkManager theLinkManager;
+	//establishLinks(theRecordManager, theLinkManager);
+	//for (auto it = theLinkManager.cbegin(); it != theLinkManager.cend(); ++it)
+	//	std::cout << *it;
 }

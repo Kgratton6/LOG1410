@@ -13,26 +13,32 @@ PropertyContainer BaseProperty::m_emptyContainer;
 BaseProperty& BaseProperty::addProperty(const BaseProperty& prop)
 {
 	// Ne rien ajouter et retourner un objet fictif obtenu par un itérateur fourni par le conteneur vide
+	PropertyIterator it = m_emptyContainer.begin();
+	return *it;
 }
 
 PropertyIterator BaseProperty::begin()
 {
 	// À compéter
+	return m_emptyContainer.begin();
 }
 
 PropertyIterator BaseProperty::end()
 {
 	// À compéter
+	return m_emptyContainer.end();
 }
 
 PropertyIterator_const BaseProperty::cbegin() const
 {
 	// À compéter
+	return m_emptyContainer.cbegin();
 }
 
 PropertyIterator_const BaseProperty::cend() const
 {
 	// À compéter
+	return m_emptyContainer.cend();
 }
 
 void BaseProperty::deleteProperty(PropertyIterator_const child)
@@ -50,4 +56,6 @@ std::ostream& BaseProperty::indent(std::ostream& o) const
 std::ostream& operator<<(std::ostream& o, const BaseProperty& prop)
 {
 	// À compéter
+	o << prop;
+	return o;
 }
